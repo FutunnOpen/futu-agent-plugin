@@ -1,0 +1,19 @@
+{
+  "name": "futu-agent-plugins",
+  "displayName": "Futu Agent Plugins",
+  "owner": {
+    "name": "Futu"
+  },
+  "metadata": {
+    "description": "富途 MCP 插件集合 — 行情报价、选股筛选、新闻资讯、账户交易",
+    "version": "1.0.0",
+    "pluginRoot": "."
+  },
+  "plugins": [
+    {
+      "name": "futu-mcp",
+      "source": "https://github.com/FutunnOpen/futu-agent-plugin.git",
+      "description": "富途行情、选股、新闻、交易一站式 MCP 插件"
+    }
+  ]
+}

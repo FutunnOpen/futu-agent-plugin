@@ -1,0 +1,22 @@
+{
+  "name": "futu-agent-plugins",
+  "interface": {
+    "displayName": "Futu Agent Plugins"
+  },
+  "plugins": [
+    {
+      "name": "futu-mcp",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/FutunnOpen/futu-agent-plugin.git",
+        "path": "./",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "INSTALLED_BY_DEFAULT",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Finance"
+    }
+  ]
+}
