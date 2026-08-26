@@ -1,5 +1,10 @@
 {
   "name": "futu-agent-plugins",
+  "owner": {
+    "name": "Futu",
+    "url": "https://www.futunn.com"
+  },
+  "description": "富途 MCP 插件集合 — 行情报价、选股筛选、新闻资讯、账户交易",
   "interface": {
     "displayName": "Futu Agent Plugins"
   },

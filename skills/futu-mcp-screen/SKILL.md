@@ -33,3 +33,5 @@ description: 富途选股筛选器 — 股票多因子筛选/窝轮牛熊证筛�
 4. 分页参数：`limit` 最大 300，用 `next_key` 翻页
 5. 筛选结果用表格呈现，包含关键指标列
 6. 窝轮/期权场景下，主动提示到期日、杠杆、溢价率等风险指标
+7. `quote_option_screen` 必须通过 `field_filter` 指定需要返回的字段，不传只返回 4 个默认字段（volume/price/chg_ratio/implied_volatility）
+8. 优先用 `limit` 收窄结果集，避免大量数据占用上下文

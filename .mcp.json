@@ -1,6 +1,8 @@
 {
-  "futu-mcp": {
-    "type": "http",
-    "url": "https://mcp.futunn.com/mcp"
+  "mcpServers": {
+    "futu-mcp": {
+      "type": "http",
+      "url": "https://mcp.futunn.com/mcp"
+    }
   }
 }

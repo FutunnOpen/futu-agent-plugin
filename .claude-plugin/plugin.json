@@ -10,8 +10,8 @@
   "repository": "https://github.com/FutunnOpen/futu-agent-plugin",
   "license": "MIT",
   "keywords": ["futu", "stock", "trading", "quote", "finance", "mcp", "hongkong", "us-stock"],
-  "skills": "../skills/",
-  "mcpServers": "../.mcp.json",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
   "hooks": {},
   "interface": {
     "displayName": "Futu MCP",
