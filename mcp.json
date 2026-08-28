@@ -2,7 +2,17 @@
   "mcpServers": {
     "futu-mcp": {
       "type": "http",
-      "url": "https://mcp.futunn.com/mcp"
+      "url": "https://mcp.futunn.com/mcp",
+      "auth": {
+        "type": "oauth2",
+        "issuer": "https://webapi.futunn.com",
+        "authorization_endpoint": "https://webapi.futunn.com/oauth2/authorize/confirm",
+        "token_endpoint": "https://webapi.futunn.com/oauth2/token",
+        "registration_endpoint": "https://webapi.futunn.com/oauth2/register",
+        "revocation_endpoint": "https://webapi.futunn.com/oauth2/revoke",
+        "scopes": ["quote:read", "quote:write", "trade:read", "trade:write", "accid:*"],
+        "external_base_url": "https://mcp.futunn.com"
+      }
     }
   }
 }
