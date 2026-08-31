@@ -8,7 +8,7 @@
       "name": "futu-mcp",
       "source": {
         "source": "git-subdir",
-        "url": "https://github.com/ft-durkenhe/futu-agent-plugin.git",
+        "url": "https://github.com/FutunnOpen/futu-agent-plugin.git",
         "path": "./",
         "ref": "main"
       },

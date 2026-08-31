@@ -7,7 +7,7 @@
     "url": "https://www.futunn.com"
   },
   "homepage": "https://open.futunn.com",
-  "repository": "https://github.com/ft-durkenhe/futu-agent-plugin",
+  "repository": "https://github.com/FutunnOpen/futu-agent-plugin",
   "license": "MIT",
   "keywords": ["futu", "stock", "trading", "quote", "finance", "mcp", "hongkong", "us-stock"],
   "skills": "./skills/",
