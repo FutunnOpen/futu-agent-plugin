@@ -1,5 +1,6 @@
 {
   "name": "futu-agent-plugins",
+  "icon": "../assets/futu.png",
   "displayName": "Futu Agent Plugins",
   "owner": {
     "name": "Futu"

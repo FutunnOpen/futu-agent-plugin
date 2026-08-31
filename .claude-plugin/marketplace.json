@@ -1,5 +1,6 @@
 {
   "name": "futu-agent-plugins",
+  "icon": "../assets/futu.png",
   "owner": {
     "name": "Futu",
     "url": "https://www.futunn.com"
