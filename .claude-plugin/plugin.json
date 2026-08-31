@@ -1,6 +1,6 @@
 {
   "name": "futu-mcp",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "富途行情、选股、新闻、交易一站式 MCP 插件。通过 Futu MCP Server 提供港/美/A/新/日/加等多市场行情查询与交易下单，覆盖K线、资金流向、期权链、财报、研报、机构持仓、经济日历等全方位金融数据服务。",
   "author": {
     "name": "Futu",

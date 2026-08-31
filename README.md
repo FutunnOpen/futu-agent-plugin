@@ -7,13 +7,14 @@
 ```
 futu-agent-plugin/
 ├── plugin.json                    # Agent Plugins 开放标准 manifest
-├── mcp.json                       # Cursor 格式 MCP 配置
+├── mcp.json                       # Agent Plugins 标准 MCP 配置
 ├── .mcp.json                      # Codex / Claude Code 格式 MCP 配置
 ├── .claude-plugin/
 │   ├── plugin.json                # Claude Code 插件 manifest
 │   └── marketplace.json           # Claude Code marketplace 注册
 ├── .cursor-plugin/
 │   ├── plugin.json                # Cursor 插件 manifest
+│   ├── mcp.json                   # Cursor 格式 MCP 配置
 │   └── marketplace.json           # Cursor Team Marketplace 注册
 ├── .codex-plugin/
 │   └── plugin.json                # Codex 插件 manifest
@@ -55,7 +56,7 @@ futu-agent-plugin/
 | 平台 | 识别方式 | MCP 配置 | Marketplace |
 |------|----------|----------|-------------|
 | **Claude Code** | `.claude-plugin/plugin.json` | `.mcp.json` | `.claude-plugin/marketplace.json` |
-| **Cursor** | `.cursor-plugin/plugin.json` | `mcp.json` | `.cursor-plugin/marketplace.json` |
+| **Cursor** | `.cursor-plugin/plugin.json` | `.cursor-plugin/mcp.json` | `.cursor-plugin/marketplace.json` |
 | **Codex** | `.codex-plugin/plugin.json` | `.mcp.json` | `.agents/plugins/marketplace.json` |
 | **Agent Plugins** | 根目录 `plugin.json` | `mcp.json` | — |
 
@@ -69,7 +70,7 @@ futu-agent-plugin/
 https://mcp.futunn.com/mcp
 ```
 
-协议：Streamable HTTP（Claude Code / Cursor）/ HTTP（Codex）
+协议：Streamable HTTP
 
 ## 安装方式
 
@@ -161,7 +162,7 @@ codex plugin marketplace add FutunnOpen/futu-agent-plugin
 
 ### Codex (.agents/plugins/marketplace.json)
 
-- `source: "git-subdir"` — 通过 git 拉取仓库，`path: "./"` 指向仓库根，`ref: "main"` 指定分支
+- `source: "url"` — 插件位于 Git 仓库根目录，`ref: "main"` 指定分支
 - `installation: "AVAILABLE"` — 用户可选安装
 - `authentication: "ON_INSTALL"` — 安装时触发 OAuth 鉴权
 

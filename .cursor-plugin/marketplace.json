@@ -7,7 +7,7 @@
   },
   "metadata": {
     "description": "富途 MCP 插件集合 — 行情报价、选股筛选、新闻资讯、账户交易",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "pluginRoot": "."
   },
   "plugins": [
