@@ -20,10 +20,34 @@ futu-agent-plugin/
 ├── .agents/plugins/
 │   └── marketplace.json           # Codex marketplace 注册
 └── skills/
-    ├── futu-mcp-quote/SKILL.md    # 行情：报价/K线/盘口/分时/逐笔/板块/自选
-    ├── futu-mcp-screen/SKILL.md   # 筛选：股票/窝轮/期权/IPO
-    ├── futu-mcp-news/SKILL.md     # 研究：新闻/财报/估值/股东/资金流/期权
-    └── futu-mcp-account/SKILL.md  # 交易：真实/模拟 下单/改单/撤单/持仓/资金
+    ├── futu-mcp-quote/
+    │   ├── SKILL.md               # 行情：报价/K线/盘口/分时/逐笔/板块/自选
+    │   └── reference/
+    │       ├── quote-realtime.md   # 实时行情参考
+    │       ├── quote-tick.md       # 逐笔/分时参考
+    │       └── quote-watchlist.md  # 自选股/板块参考
+    ├── futu-mcp-screen/
+    │   ├── SKILL.md               # 筛选：股票/窝轮/期权/IPO
+    │   └── reference/
+    │       ├── quote-screening.md  # 股票筛选参考
+    │       ├── quote-options.md    # 期权筛选参考
+    │       └── quote-futures-warrants.md  # 期货/窝轮参考
+    ├── futu-mcp-news/
+    │   ├── SKILL.md               # 研究：新闻/财报/估值/股东/资金流/期权
+    │   └── reference/
+    │       ├── quote-news.md       # 新闻/社区/动态参考
+    │       ├── quote-financials.md # 财务报表参考
+    │       ├── quote-research.md   # 研报/评级参考
+    │       ├── quote-shareholders.md  # 股东持仓参考
+    │       ├── quote-capital.md    # 资金流向参考
+    │       ├── quote-corporate-actions.md  # 公司行动参考
+    │       └── quote-short-broker.md  # 做空/经纪商参考
+    └── futu-mcp-account/
+        ├── SKILL.md               # 交易：真实/模拟 下单/改单/撤单/持仓/资金
+        └── reference/
+            ├── trading-real.md     # 真实交易参考
+            ├── trading-real-order.md  # 真实下单参考
+            └── trading-sim.md     # 模拟交易参考
 ```
 
 ## 兼容说明
@@ -51,44 +75,22 @@ https://mcp.futunn.com/mcp
 
 ### Claude Code
 
-**本地测试：**
-```bash
-claude plugin install --plugin-dir /path/to/futu-agent-plugin
-```
-
-或在 `settings.json` 中手动添加：
-```json
-{
-  "enabledPlugins": {
-    "futu-mcp@local": true
-  }
-}
-```
-
-**Marketplace 发布：**
-
-将此仓库提交至 Claude Code 官方 marketplace，或作为自定义 marketplace 添加：
 ```bash
 /plugin marketplace add FutunnOpen/futu-agent-plugin
 ```
 
+或提交至 [plugin directory submission](https://clau.de/plugin-directory-submission)。
+
 ### Cursor
 
-**本地测试：**
-```bash
-ln -s /path/to/futu-agent-plugin ~/.cursor/plugins/local/futu-mcp
+在 Dashboard → Plugins → Add Marketplace 中填入仓库 URL：
 ```
-重启 Cursor 或执行 Developer: Reload Window。
-
-**Team Marketplace：**
-在 Dashboard → Plugins 中添加此仓库 URL，Cursor 自动读取 `.cursor-plugin/marketplace.json`。
+https://github.com/FutunnOpen/futu-agent-plugin.git
+```
+Cursor 自动读取 `.cursor-plugin/marketplace.json`。
 
 ### Codex
 
-**本地：**
-将此仓库 clone 到本地，`.agents/plugins/marketplace.json` 已注册插件。
-
-**远程安装：**
 ```bash
 codex plugin marketplace add FutunnOpen/futu-agent-plugin
 ```
@@ -143,14 +145,14 @@ codex plugin marketplace add FutunnOpen/futu-agent-plugin
 | MY | 马来西亚 |
 | KR | 韩国 |
 
-## 作用流程
+## 工作流程
 
 1. IDE/CLI 启动时扫描对应的 marketplace 或 plugin manifest
 2. 发现 futu-mcp 插件，通过 git 拉取 `https://github.com/FutunnOpen/futu-agent-plugin.git`
 3. 用户在插件目录里看到它，可以安装/启用
 4. 安装后加载 MCP 配置，连接 `https://mcp.futunn.com/mcp`，加载 skills
 
-## marketplace 配置说明
+## Marketplace 配置说明
 
 ### Claude Code (.claude-plugin/marketplace.json)
 
@@ -160,48 +162,10 @@ codex plugin marketplace add FutunnOpen/futu-agent-plugin
 ### Codex (.agents/plugins/marketplace.json)
 
 - `source: "git-subdir"` — 通过 git 拉取仓库，`path: "./"` 指向仓库根，`ref: "main"` 指定分支
-- `installation: "INSTALLED_BY_DEFAULT"` — 安装后自动启用
+- `installation: "AVAILABLE"` — 用户可选安装
 - `authentication: "ON_INSTALL"` — 安装时触发 OAuth 鉴权
 
 ### Cursor (.cursor-plugin/marketplace.json)
 
 - `plugins[].source` — 通过 git URL 拉取：`https://github.com/FutunnOpen/futu-agent-plugin.git`
 - `metadata.pluginRoot: "."` — 插件根目录就是仓库根
-
-## 远程发布
-
-**Claude Code 官方 marketplace：**
-
-提交至 [plugin directory submission](https://clau.de/plugin-directory-submission)，或在自有 marketplace repo 的 `marketplace.json` 中添加：
-```json
-{
-  "name": "futu-mcp",
-  "source": {
-    "source": "url",
-    "url": "https://github.com/FutunnOpen/futu-agent-plugin.git"
-  },
-  "description": "富途行情、选股、新闻、交易一站式 MCP 插件",
-  "category": "Finance"
-}
-```
-
-**Codex git-subdir 格式：**
-```json
-{
-  "name": "futu-mcp",
-  "source": {
-    "source": "git-subdir",
-    "url": "https://github.com/FutunnOpen/futu-agent-plugin.git",
-    "path": "./",
-    "ref": "main"
-  },
-  "policy": {
-    "installation": "AVAILABLE",
-    "authentication": "ON_INSTALL"
-  },
-  "category": "Finance"
-}
-```
-
-**Cursor Team Marketplace：**
-直接在 Dashboard → Plugins → Add Marketplace 中填入仓库 URL 即可。
