@@ -11,7 +11,7 @@
   "license": "MIT",
   "keywords": ["futu", "stock", "trading", "quote", "finance", "mcp", "hongkong", "us-stock"],
   "skills": "./skills/",
-  "mcpServers": "./.mcp.json",
+  "mcpServers": "./.codex-plugin/mcp.json",
   "hooks": {},
   "interface": {
     "displayName": "Futu MCP",
