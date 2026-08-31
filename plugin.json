@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "futu-mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Futu MCP plugin — 行情报价、选股筛选、新闻资讯、账户交易",
   "author": {
     "name": "Futu",
