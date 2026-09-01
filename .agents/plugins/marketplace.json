@@ -1,6 +1,5 @@
 {
   "name": "futu-agent-plugins",
-  "icon": "../../assets/futu.png",
   "interface": {
     "displayName": "Futu Agent Plugins"
   },
@@ -8,9 +7,8 @@
     {
       "name": "futu-mcp",
       "source": {
-        "source": "git-subdir",
+        "source": "url",
         "url": "https://github.com/FutunnOpen/futu-agent-plugin.git",
-        "path": "./",
         "ref": "main"
       },
       "policy": {
